@@ -1,0 +1,118 @@
+/**
+ * CSS FOR LAYOUT
+ */
+#filemanager {
+	height:100%;
+	min-height:500px;
+	width:100%;
+} 
+
+/* customize the borders to avoid double-borders */
+.ui-layout-pane {
+	border:			0; /* override layout-default-latest.css */
+	border-top:		1px solid #BBB;
+	border-bottom:	1px solid #BBB;
+}
+.ui-layout-pane-north ,
+.ui-layout-pane-south {
+	border:			1px solid #BBB;
+	overflow:		hidden;
+}
+.ui-layout-pane-west ,
+.ui-layout-pane-east {
+} 
+.ui-layout-pane-center	{
+	border-left:	0;
+	border-right:	0;
+	} 
+	.inner-center {
+		border:		1px solid #BBB;
+	}
+
+/* add shading to outer sidebar-panes */
+.outer-west ,
+.outer-east {
+	background-color: #EEE;
+}
+.middle-west ,
+.middle-east {
+	background-color: #F8F8F8;
+}
+
+/* remove padding & scrolling from panes that are 'containers' for nested layouts */ 
+.outer-center ,
+.middle-center {
+	border:			0; /* cosmetic */
+	padding:		0; 
+	overflow:		hidden;
+}
+
+/*
+ *	customize borders on panes/resizers to make pretty
+ */
+.ui-layout-pane-west		{ border-right:		0; } 
+.ui-layout-resizer-west		{ border-left:		1px solid #BBB; }
+.ui-layout-pane-east		{ border-left:		0; } 
+.ui-layout-resizer-east		{ border-right:		1px solid #BBB; }
+.ui-layout-pane-north		{ border-bottom:	0; }
+.ui-layout-resizer-north	{ border-top:		1px solid #BBB; }
+.ui-layout-pane-south		{ border-top:		0; }
+.ui-layout-resizer-south	{ border-bottom: 	1px solid #BBB; }
+/*
+ *	add borders to resizers when pane is 'closed'
+ *
+ *.ui-layout-resizer-closed	{ border:			1px solid #BBB; }
+ */
+/* 
+ *	show both borders when the resizer is 'dragging' 
+ */
+.ui-layout-resizer-west-dragging ,
+.ui-layout-resizer-east-dragging {
+	border-left:		1px solid #BBB;
+	border-right:		1px solid #BBB;
+}
+.ui-layout-resizer-north-dragging ,
+.ui-layout-resizer-south-dragging {
+	border-top:		1px solid #BBB;
+	border-bottom:	1px solid #BBB;
+}
+
+#filemanager-config,
+#filemanager-send {
+	display: none;
+}
+#file-view {
+	overflow: auto;
+	font-size: 9px;
+}
+	
+.inner-center {
+	overflow: hidden;
+}
+/**
+ * CSS FOR JQUERY TOOLS
+ */
+
+.modal {
+	background-color:#fff;
+	display:none;
+	width:350px;
+	padding:15px;
+	text-align:left;
+	border:2px solid #333;
+	z-index:10000;
+
+	opacity:0.8;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	-moz-box-shadow: 0 0 50px #ccc;
+	-webkit-box-shadow: 0 0 50px #ccc;
+}
+
+.modal h2 {
+	background:url(/img/global/info.png) 0 50% no-repeat;
+	margin:0px;
+	padding:10px 0 10px 45px;
+	border-bottom:1px solid #333;
+	font-size:20px;
+}

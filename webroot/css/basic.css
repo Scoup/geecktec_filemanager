@@ -1,0 +1,180 @@
+html, body {
+	overflow: auto;
+}
+
+/*
+ * FLOATED ELEMENTS
+ */
+
+#file-view h2, #config, #config input, #folder-tree, #enviarArquivo, #formularioDeArquivos, #formularioDeArquivos form,
+.thumb, .file_image, .file_image img, .file_details, .file_name, .file_entry, .file_size {
+	float: left;
+	display: inline;	 
+}
+
+#file-view {
+	text-align: left;
+}
+
+
+/*
+ * TAGS
+ */
+ 
+h2 {
+	font-size: 1.2em;
+	font-weight: bold;
+	padding: 0 0 5px 0;
+	margin: 0 0 5px 0;
+	width: 100%;	
+	border-bottom: 1px #CCC solid;
+}
+
+a { text-decoration: none;}
+
+br, hr { display: none; }
+
+input, textarea, select { font-family: inherit; font-size: 1.2em }
+
+/*
+ *	MENU CONFIGURAÇÕES
+ */
+ 
+#config, #config-search {}
+
+#config { width: 70% }
+ 
+#config input, #config-search input {
+ 	margin: 0 5px 0 0; 	
+ 	padding: 3px 5px;
+}
+ 
+#config input:hover {}
+ 
+#config-search { width: 30%;}
+ 
+#config-search, #config-search input { float: right; }
+
+#config-search input#text { width: 50%; }
+
+/*
+ *	PASTAS
+ */
+ 
+#folder-tree {}
+
+/**
+ *  THUMBNAILS	
+ **/
+
+#file_view { }
+
+.thumb {
+	width: 142px;
+	height: 192px;	
+	margin: 5px;	
+	display: inline;
+	overflow: hidden;
+	-moz-box-shadow: 5px 5px 5px #888;
+	-webkit-box-shadow: 5px 5px 5px #888;
+	box-shadow: 5px 5px 5px #888;		
+}
+
+.thumb {
+	padding: 5px;
+	display: block;	
+	width: 130px;
+	height: 180px;	
+	color: #333;
+	border: 1px #CCC solid;
+	cursor: pointer;	
+}
+
+.thumb:hover { background: #99DEFD; }
+
+	.file_image {
+		width: 128px;		
+		height: 138px;
+		border: 1px #CCC solid;
+		overflow: hidden;
+		text-align: center;
+		background: #CCC;									
+	}	
+	.file_image img {
+		min-height: 100%;
+		min-width: 100%;
+		margin: 0 auto;
+		float: none;		
+	}	
+	
+	* html .file_image img {		
+		height: 100%;
+		-ms-interpolation-mode: bicubic;
+	}
+	
+	.file_details {		
+		display: inline;
+		font-size: 1.1em;
+		width:100%;		
+		overflow: hidden;		
+	}	
+		.file_name, .file_entry, .file_size {							
+			width: 99%;
+			text-align: center;															
+		}		
+		.file_name {									
+			white-space: nowrap;
+			color: #333;			 
+			padding: 5px 0 2px 0;						
+		}
+		.file_entry {			
+			padding: 4px 0;
+		}
+		.file_size {}
+		
+		.file_details ul li {margin:0; padding:0}
+
+/*
+ *	ENVIAR ARQUIVOS
+ */
+
+#enviarArquivo {
+	width: 140px;
+	border: none;	
+	padding: 5px 0 0 0;
+	cursor: pointer;
+}
+
+#formularioDeArquivos { display: none; }
+
+#formularioDeArquivos form { }
+
+#formularioDeArquivos form div { float: left;}
+
+#formularioDeArquivos form div.input { margin: 0 10px 0 0;}
+
+#formularioDeArquivos form div.input input { }
+
+#formularioDeArquivos form div.submit { }
+
+#formularioDeArquivos form div.submit input { font-weight: bold; padding: 0 10px; }
+
+#formularioDeArquivos form div input { }
+ 
+/*
+ *	CLASSES GERAIS
+ */
+
+/* new clearfix */
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+
+.hidden { display: none; }

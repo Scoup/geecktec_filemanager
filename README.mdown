@@ -1,0 +1,36 @@
+# Geecktec Filemanager Croogo's Plugin
+
+**NOT STABLE**
+
+**Geecktec Filemanager** is a free, open source, content management system for PHP, released under [MIT License]
+**Geecktec Filemanager** is compatible with [Geecktec CKeditor](http://github.com/Scoup/geecktec_ckeditor)
+
+It is powered by [CakePHP](http://cakephp.org) MVC framework.
+And [Croogo](http://croogo.com) CMS
+
+## Requeriments
+  * Apache with mod_rewrite
+  * PHP 5.2 or higher
+  * MySQL 4.1 or higher
+  * Cakephp 1.3.x
+  * Croogo 1.3.2+
+ 
+## Instalation
+
+#### Automatic Plugin Installer
+  * Download the .zip file
+  * Visit your_croogo/admin/extensions/extensions_plugins/add
+  * Upload the .zip file
+  
+#### Manual Instalation
+  * Download and unzip the .zip file or the source code
+  * Extract geecktec_filemanager inside your croogo_folder/plugins
+
+## Links
+  * **Official website**: [http://blog.geecktec.com](http://blog.geecktec.com)
+  * **Downloads**: [http://github.com/Scoup/geecktec_filemanager/downloads](http://github.com/Scoup/geecktec_filemanager/downloads)
+  * **Cakephp Official website**: [http://cakephp.org](http://cakephp.org)  
+  * **Croogo Official website**: [http://croogo.org](http://croogo.org)
+  * **Croogo Blog**: [http://fahad19.com/blog/term/croogo](http://fahad19.com/blog/term/croogo)
+  * **Croogo IRC Channel**: #croogo on irc.freenode.net
+  
