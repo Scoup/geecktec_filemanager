@@ -35,3 +35,4 @@ $(document).ready(function() {
 	</div>
 <?php } ?>
 </div>
+<div style="clear:both"></div>

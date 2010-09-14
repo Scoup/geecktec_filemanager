@@ -10,7 +10,10 @@ class GeecktecFilemanagerFile extends GeecktecFilemanagerAppModel {
 				'maxSize' => 2097152,
 			)
 		),
-		'Tree',
+		'GeecktecFilemanager.Sequence' => array(
+			'group_fields' =>'geecktec_filemanager_folder_id'
+		)
+//		'Tree',
 	);
 	
 	public $belongsTo = array(

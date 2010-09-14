@@ -1,0 +1,70 @@
+#filemanager {
+	position: relative;
+	padding-top:30px;
+	font-size:9px;
+}
+#vakata-contextmenu{
+	font-size: 9px;
+}
+/*
+ *	PASTAS
+ */
+ 
+#folder-tree {
+	width:100%;
+}
+#gtbox-file-view {
+	position:absolute;
+	z-index:100;
+	width:250px;
+}
+#tabs {
+	margin-top:30px;
+	height:100%;
+}
+.ui-gtgrid-bdiv {
+	overflow: auto;
+}
+.ui-gtgrid {
+	font-size:11px;
+	position:relative;
+}
+.ui-gtgrid .ui-gtgrid-view {
+	left:0;
+	padding:0;
+	position:relative;
+	top:0;
+}
+.ui-gtgrid .ui-gtgrid-bdiv {
+	margin:0;
+	overflow:auto;
+	padding:0;
+	position:relative;
+}
+.ui-gtgrid .ui-gtgrid-titlebar {
+	border-left:0 none;
+	border-right:0 none;
+	border-top:0 none;
+	padding:0.3em 0.2em 0.2em 0.3em;
+	position:relative;
+}
+.ui-gtgrid .ui-gtgrid-titlebar-close {
+	height:18px;
+	margin:-10px 0 0;
+	padding:1px;
+	position:absolute;
+	top:50%;
+	width:19px;
+}
+.ui-gtgrid .ui-gtgrid-titlebar-close span {
+	display:block;
+	margin:1px;
+}
+.ui-gtgrid .ui-gtgrid-title {
+	float:left;
+	margin:0.1em 0 0.2em;
+}
+
+
+/* TABS */
+#tabs li .ui-icon-close { float: left; margin: 0.4em 0.2em 0 0; cursor: pointer; }

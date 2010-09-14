@@ -57,12 +57,6 @@ input, textarea, select { font-family: inherit; font-size: 1.2em }
 
 #config-search input#text { width: 50%; }
 
-/*
- *	PASTAS
- */
- 
-#folder-tree {}
-
 /**
  *  THUMBNAILS	
  **/

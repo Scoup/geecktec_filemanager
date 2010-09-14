@@ -343,6 +343,8 @@ $(function () {
 			var id = data.rslt.obj.attr("id").replace("node_","");
 			$("#FolderId").attr('value', id);
 			updateScreen(ajaxRefreshScreen, id);
+		}).droppable({
+			accept: '#imagens thumb'
 		});
 	/**
 	 * Create the options
