@@ -62,7 +62,7 @@ $(document).ready(function() {
 <?php if(count($files) == 0):?>
 <div class="empty"><?php echo __('No files founds', true)?></div>
 <?php endif;?>
-<ul class="imagens" style="margin-left:80px">
+<ul class="imagens">
 <?php
 	foreach($files as $file){		
 ?>
@@ -72,8 +72,8 @@ $(document).ready(function() {
 			echo $images->resize(
 				$file['GeecktecFilemanagerFile']['dir'].DS.$file['GeecktecFilemanagerFile']['filename'], 
 				array(
-					'width' => 128,
-					'height' => 138,
+					'width' => 158,
+					'height' => 158,
 					'aspect' => false,
 					'adaptive' => true,
 				),

@@ -65,8 +65,7 @@
 	 * Begins configurations
 	 */
 	function _initConfig(messages, options){
-		console.debug(options)
-		alert(messages);
+		console.debug(options);
 		// Icons
 		$(".ui-state-default").live('mouseover mouseout', function(event){
 			if(event.type == 'mouseover') {
@@ -199,7 +198,6 @@
 
 		// Settings up the tree - using $(selector).jstree(options);
 		// All those configuration options are documented in the _docs folder
-		alert(options.getChildren);
 		filemangerJsTree = $("#folder-tree")
 			.jstree({ 
 				// the list of plugins to include

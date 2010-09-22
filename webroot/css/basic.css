@@ -77,8 +77,8 @@ input, textarea, select { font-family: inherit; font-size: 1.2em }
 .thumb {
 	padding: 5px;
 	display: block;	
-	width: 130px;
-	height: 180px;	
+	width: 159px;
+	height: 220px;	
 	color: #333;
 	border: 1px #CCC solid;
 	cursor: pointer;	
@@ -87,8 +87,8 @@ input, textarea, select { font-family: inherit; font-size: 1.2em }
 /*.thumb:hover { background: #99DEFD; }*/
 
 	.file_image {
-		width: 128px;		
-		height: 138px;
+		width: 158px;		
+		height: 158px;
 		border: 1px #CCC solid;
 		overflow: hidden;
 		text-align: center;
