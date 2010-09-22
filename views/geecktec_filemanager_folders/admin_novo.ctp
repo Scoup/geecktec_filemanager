@@ -4,7 +4,8 @@
 //			'/geecktec_filemanager/css/jquery-layout',					// jquery layout CSS
 //			'/geecktec_filemanager/css/basic',							// Basic CSS
 			'/geecktec_filemanager/css/jquery.contextMenu',				// ContextMenu
-			'/geecktec_filemanager/css/uploader/fileuploader',			// Valums Fileuploader CSS
+//			'/geecktec_filemanager/css/uploader/fileuploader',			// Valums Fileuploader CSS
+//			'/geecktec_filemanager/css/uploader/new',					// Valums Fileuploader CSS
 //			'/geecktec_filemanager/css/layout-custom',					// Custom Css for jquery-layout
 		));  
 		
@@ -17,29 +18,41 @@
 
 			'/geecktec_filemanager/js/fileuploader',					// Valums FileUploader JS
 //			'/geecktec_filemanager/js/commom',
-			'/geecktec_filemanager/js/novo'
+//			'/geecktec_filemanager/js/novo',
+			'/geecktec_filemanager/js/filemanager',
 		), array('inline' => false));		
 ?>
 <script type="text/javascript">
-//Ajax Links
-var getChildren = '<?php echo $this->webroot?>admin/geecktec_filemanager/geecktec_filemanager_folders/ajaxGetChildren';
-var addNode = '<?php echo $this->webroot?>admin/geecktec_filemanager/geecktec_filemanager_folders/ajaxAddNode';
-var renameNode = '<?php echo $this->webroot?>admin/geecktec_filemanager/geecktec_filemanager_folders/ajaxRenameNode';
-var removeNode = '<?php echo $this->webroot?>admin/geecktec_filemanager/geecktec_filemanager_folders/ajaxRemoveNode';
-var moveNode = '<?php echo $this->webroot?>admin/geecktec_filemanager/geecktec_filemanager_folders/ajaxMoveNode';
-var ajaxRefreshScreen = '<?php echo $this->webroot?>admin/geecktec_filemanager/geecktec_filemanager_folders/ajaxRefreshScreen/';
-var ajaxSearch = '<?php echo $this->webroot?>admin/geecktec_filemanager/geecktec_filemanager_folders/ajaxSearch';
+$(function(){
+	$("body").filemanager(
+		{
+			imageRoot: "<?php echo $this->webroot?>geecktec_filemanager/img/root.png",
+			imageFile: "<?php echo $this->webroot?>geecktec_filemanager/img/file.png",
+			imageFolder: "<?php echo $this->webroot?>geecktec_filemanager/img/folder.png",
 
-//Images Links
-var image_Root = "<?php echo $this->webroot?>geecktec_filemanager/img/root.png";
-var image_File = "<?php echo $this->webroot?>geecktec_filemanager/img/file.png";
-var image_Folder = "<?php echo $this->webroot?>geecktec_filemanager/img/folder.png";
+			folderGetChildren: '<?php echo $this->webroot?>admin/geecktec_filemanager/geecktec_filemanager_folders/ajaxGetChildren',
+			folderAdd: '<?php echo $this->webroot?>admin/geecktec_filemanager/geecktec_filemanager_folders/ajaxAddNode',
+			folderRename: '<?php echo $this->webroot?>admin/geecktec_filemanager/geecktec_filemanager_folders/ajaxRenameNode',
+			folderMove: '<?php echo $this->webroot?>admin/geecktec_filemanager/geecktec_filemanager_folders/ajaxMoveNode',
+			folderRemove: '<?php echo $this->webroot?>admin/geecktec_filemanager/geecktec_filemanager_folders/ajaxRemoveNode',
+
+			refreshScreen: '<?php echo $this->webroot?>admin/geecktec_filemanager/geecktec_filemanager_folders/ajaxRefreshScreen/',
+			ajaxSearch: '<?php echo $this->webroot?>admin/geecktec_filemanager/geecktec_filemanager_folders/ajaxSearch',
+
+			fileRemove:  '<?php echo $this->webroot?>admin/geecktec_filemanager/geecktec_filemanager_files/ajaxDelete/'
+		},
+		{
+			deleteFile: "Tem certeza que deseja apagar isso?"
+		} 
+	);	
+});
 </script>
-
-<script type="text/javascript">
-
-</script>
-
+<div id="file-uploaer">       
+    <noscript>          
+        <p>Please enable JavaScript to use file uploader.</p>
+        <!-- or put a simple form for upload here -->
+    </noscript>         
+</div>
               
 <div id="filemanager">
 	<div id="gtbox-file-view" class="ui-gtgrid ui-widget ui-widget-content ui-corner-all">
@@ -57,6 +70,10 @@ var image_Folder = "<?php echo $this->webroot?>geecktec_filemanager/img/folder.p
 			</div>
 		</div>
 		
+	</div>
+	
+	<div id="gtbox-file-options">
+		<div id="file-uploader"></div>
 	</div>
 	
 	<div id="tabs" class="gtgtabs ui-tabs ui-widget ui-widget-content ui-corner-all">

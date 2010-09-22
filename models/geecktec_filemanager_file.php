@@ -16,6 +16,13 @@ class GeecktecFilemanagerFile extends GeecktecFilemanagerAppModel {
 //		'Tree',
 	);
 	
+/*	public $validate = array(
+		'parent_id' => array(
+			'rule' => 'numeric',
+			'message' => 'Must be a valid ID'
+		)
+	);
+	*/
 	public $belongsTo = array(
 		'GeecktecFilemanagerFolder' => array(
 			'className' => 'GeecktecFilemanager.GeecktecFilemanagerFolder'

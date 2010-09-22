@@ -82,9 +82,9 @@ input, textarea, select { font-family: inherit; font-size: 1.2em }
 	color: #333;
 	border: 1px #CCC solid;
 	cursor: pointer;	
+	position: relative;
 }
-
-.thumb:hover { background: #99DEFD; }
+/*.thumb:hover { background: #99DEFD; }*/
 
 	.file_image {
 		width: 128px;		
@@ -117,8 +117,7 @@ input, textarea, select { font-family: inherit; font-size: 1.2em }
 			text-align: center;															
 		}		
 		.file_name {									
-			white-space: nowrap;
-			color: #333;			 
+			white-space: nowrap;		 
 			padding: 5px 0 2px 0;						
 		}
 		.file_entry {			

@@ -29,7 +29,10 @@ class GeecktecFilemanagerFilesController extends GeecktecFilemanagerAppControlle
 		if(!empty($this->data)){
 			$this->GeecktecFilemanagerFile->create();
 			if($this->GeecktecFilemanagerFile->save($this->data)){
-				$output = array('success' => true);
+				$output = array(
+					'success' => true, 
+					'geecktec_filemanager_folder_id' => $this->data['GeecktecFilemanagerFile']['geecktec_filemanager_folder_id']
+				);
 			}else{
 				$output = array('error' => __('Error msg', true));
 			}
@@ -56,6 +59,29 @@ class GeecktecFilemanagerFilesController extends GeecktecFilemanagerAppControlle
 				'success' => false,
 				'msg' => __('Error :(', true)
 			);	
+		}
+		$this->set(compact('output'));
+		$this->render('/json');
+	}
+	
+	public function admin_ajaxDelete($id = null){
+		if(!$id){
+			$output = array(
+				'success' => false,
+				'msg' => __('Id not found', true)
+			);
+		}else{
+			if($this->GeecktecFilemanagerFile->delete($id)){
+				$output = array(
+					'success' => true,
+					'msg' => __('File deleted', true)
+				);
+			}else{
+				$output = array(
+					'success' => false, 
+					'msg' => __('Fail', true), 
+				);
+			}
 		}
 		$this->set(compact('output'));
 		$this->render('/json');

@@ -65,7 +65,7 @@ var image_Folder = "<?php echo $this->webroot?>geecktec_filemanager/img/folder.p
 							echo $this->Form->input('GeecktecFile.folder_id');
 							echo $this->Form->input('GeecktecFile.send', array('action' => 'title'));
 							echo $this->Form->input('GeecktecFile.file');
-							echo $this->Form->end(_('Send')) 
+							echo $this->Form->end(_('Send'));
 						?>
 						</noscript>         
 					</div>

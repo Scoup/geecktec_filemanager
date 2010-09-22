@@ -18,6 +18,7 @@ $(document).ready(function() {
 		start: startDrag,
 		beforeStop: beforeStopDrag
 	});
+	
 	// Function of start dragging the images
 	function startDrag(e,ui){
 		var old_position = $(this).parent().find('li.thumb').index(ui.helper);
@@ -41,7 +42,7 @@ $(document).ready(function() {
 			success: function(data){
 				console.debug(data);
 				if(data['success']){
-					alert(data['msg']);
+//					alert(data['msg']);
 				}else{
 					if(old_position == 0){
 						ui.helper.prependTo($(this));
@@ -61,7 +62,7 @@ $(document).ready(function() {
 <?php if(count($files) == 0):?>
 <div class="empty"><?php echo __('No files founds', true)?></div>
 <?php endif;?>
-<ul class="imagens">
+<ul class="imagens" style="margin-left:80px">
 <?php
 	foreach($files as $file){		
 ?>
@@ -87,6 +88,9 @@ $(document).ready(function() {
 					<li class="file_size"><?php echo round($file['GeecktecFilemanagerFile']['filesize'] / 1024);?> kb</li>
 				</ul>				
 			</div>
+			<a href="#" class="ui-state-default ui-corner-all ui-delete" style="right: 5px; position:absolute; display:none">
+				<span class="ui-icon ui-icon-circle-close"></span>
+			</a>
 	</li>
 <?php } ?>
 </ul>

@@ -18,6 +18,12 @@
 	z-index:100;
 	width:250px;
 }
+#gtbox-file-options {
+	position:absolute;
+	z-index:100;
+	width:500px;
+	left:300px;
+}
 #tabs {
 	margin-top:30px;
 	height:100%;
