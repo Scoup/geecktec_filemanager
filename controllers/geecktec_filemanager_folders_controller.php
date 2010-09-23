@@ -16,7 +16,7 @@ class GeecktecFilemanagerFoldersController extends GeecktecFilemanagerAppControl
 		if (isset($this->params['url']['CKEditor'])) {
 			$this->layout = 'admin_full';
 		}
-		$this->layout = 'novo';
+//		$this->layout = 'novo';
 		$this->render('admin_novo');
 	}
 	

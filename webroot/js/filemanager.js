@@ -387,7 +387,7 @@
 					$.ajax({
 						async : false,
 						type: 'POST',
-						url: folderRemove,
+						url: options.folderRemove,
 						data : { 
 							"id" : this.id.replace("node_","")
 						}, 
@@ -399,9 +399,9 @@
 					});
 				});
 			})
-			.bind("rename.jstree", function (e, data) {
+			.bind("rename.jstree", function (e, data) {	
 				$.post(
-					folderRename, 
+					options.folderRename, 
 					{ 
 						"id" : data.rslt.obj.attr("id").replace("node_",""),
 						"name" : data.rslt.new_name
@@ -409,6 +409,10 @@
 					function (r) {
 						if(!r.status) {
 							$.jstree.rollback(data.rlbk);
+						}else{
+//							console.debug(data);
+							var id = data.rslt.obj.attr('id').replace('node_','');
+							$("a[href='#tabs-" + id + "']").html('&nbsp;' + data.rslt.new_name);
 						}
 					}
 				);
@@ -418,7 +422,7 @@
 					$.ajax({
 						async : false,
 						type: 'POST',
-						url: folderMove,
+						url: options.folderMove,
 						data : {
 							"id" : $(this).attr("id").replace("node_",""), 
 							"ref" : data.rslt.np.attr("id").replace("node_",""), 

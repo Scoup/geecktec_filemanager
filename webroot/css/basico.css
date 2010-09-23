@@ -1,6 +1,6 @@
 #filemanager {
 	position: relative;
-	padding-top:30px;
+	padding-top:1px;
 	font-size:9px;
 }
 #vakata-contextmenu{
@@ -15,12 +15,12 @@
 }
 #gtbox-file-view {
 	position:absolute;
-	z-index:100;
+	z-index:5;
 	width:250px;
 }
 #gtbox-file-options {
 	position:absolute;
-	z-index:100;
+	z-index:5;
 	width:500px;
 	left:300px;
 }
