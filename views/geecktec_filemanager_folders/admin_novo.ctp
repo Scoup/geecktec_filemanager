@@ -15,10 +15,9 @@
 			'/geecktec_filemanager/js/jquery.jstree.js',				// jsTree
 			'/geecktec_filemanager/js/_lib/jquery.hotkeys',				// jsTree hotkeys plugin
 			'/geecktec_filemanager/js/_lib/jquery.cookie',				// jsTree cookie plugin
-
+			'/geecktec_filemanager/js/jquery.tools',
 			'/geecktec_filemanager/js/fileuploader',					// Valums FileUploader JS
-//			'/geecktec_filemanager/js/commom',
-//			'/geecktec_filemanager/js/novo',
+			'/geecktec_filemanager/js/jquery.tools',						// jQuery Tools
 			'/geecktec_filemanager/js/filemanager',
 		), array('inline' => false));		
 ?>
@@ -39,7 +38,8 @@ $(function(){
 			refreshScreen: '<?php echo $this->webroot?>admin/geecktec_filemanager/geecktec_filemanager_folders/ajaxRefreshScreen/',
 			ajaxSearch: '<?php echo $this->webroot?>admin/geecktec_filemanager/geecktec_filemanager_folders/ajaxSearch',
 
-			fileRemove:  '<?php echo $this->webroot?>admin/geecktec_filemanager/geecktec_filemanager_files/ajaxDelete/'
+			fileRemove:  '<?php echo $this->webroot?>admin/geecktec_filemanager/geecktec_filemanager_files/ajaxDelete/',
+			fileDownload: '<?php echo $this->webroot?>admin/geecktec_filemanager/geecktec_filemanager_files/ajaxDownload/'
 		},
 		{
 			deleteFile: "Tem certeza que deseja apagar isso?"
@@ -82,3 +82,8 @@ $(function(){
 	</div>
 	<div style="clear:both"></div>
 </div>
+<div id="overlayImage" class="simple_overlay">
+	<div class="image"></div>
+</div>
+
+<?php echo $this->element('my_menu');?>

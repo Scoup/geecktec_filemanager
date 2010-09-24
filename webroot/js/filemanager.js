@@ -9,8 +9,8 @@
 	$.fn.filemanager = function(options, messages){
 		var messages = $.extend($.fn.filemanager.messages, messages);
 		var options = $.extend($.fn.filemanager.options, options);
-		console.debug(options);
-		console.debug(messages);
+//		console.debug(options);
+//		console.debug(messages);
 		_initConfig(messages, options);
 	};
 	
@@ -49,7 +49,8 @@
 		notAvaliable: "Attachements folders is not avaliable. Use the Filemanager",
 		cannotRename: "You cannot rename this. Sorry.",
 		cannotRemove: "You cannot remove this. Sorry.",
-		notCkeditor: "The 'Select' function is only used for integration with FCKEditor.",
+		notCkeditor: "This function is only used for integration with FCKEditor or Ckeditor.",
+		closeWindow: "Are you sure to close this window?",
 		
 		// Uploader
 		uploaderArea: "Drop files here to upload",
@@ -65,7 +66,7 @@
 	 * Begins configurations
 	 */
 	function _initConfig(messages, options){
-		console.debug(options);
+//		console.debug(options);
 		// Icons
 		$(".ui-state-default").live('mouseover mouseout', function(event){
 			if(event.type == 'mouseover') {
@@ -97,15 +98,40 @@
 			}
 		});
 		
-		// Show delete file
-		$('ul.imagens li').live('mouseover mouseout', function(event){
-			var icone = $(this).find('a[class*="ui-delete"]');
-			if(event.type == "mouseover"){
-				icone.show();
-			}else{
-				icone.hide();
-			}
-		});		
+//		// Show delete file
+//		$('ul.imagens li').live('mouseover mouseout', function(event){
+//			var icone = $(this).find('a[class*="ui-delete"]');
+//			if(event.type == "mouseover"){
+//				icone.show();
+//				$(this).find('.file_options').show();
+//			}else{
+//				icone.hide();
+//				$(this).find('.file_options').hide();
+//			}
+//		});	
+		
+//		/**
+//		 * TABS IMAGES
+//		 */
+//		// Hover and Click images (border and delete action)
+//		$(".ui-delete").live('click', function(){
+//			var answer = confirm(messages.deleteFile);
+//			if(answer){
+//				var thumb = $(this).parent();
+//				var id = thumb.attr('id').replace('thumb-', '');
+//				$.getJSON(options.fileRemove + id, function(data){
+//					if(data.success){
+//						thumb.effect('blind', {}, 500, function(){
+//							thumb.remove();
+//						});
+//					} else {
+//						alert(messages.fail);
+//					}
+//				});
+//			}
+//		});
+		
+
 		
 		// Tabs
 		var $tabs = $('#tabs').tabs({
@@ -119,34 +145,13 @@
 		
 		// close icon: removing the tab on click
 		// note: closable tabs gonna be an option in the future - see http://dev.jqueryui.com/ticket/3924
-		$('#tabs span.ui-icon-close').live('click', function() {
+		$('#tabs a span.ui-icon-close').live('click', function() {
 			var index = $('li',$tabs).index($(this).parent());
 			$tabs.tabs('remove', index);
 		});
 		
 		// Tabs sortable
 		$tabs.find(".ui-tabs-nav").sortable({axis: 'x'});
-		
-		/**
-		 * TABS IMAGES
-		 */
-		// Hover and Click images (border and delete action)
-		$(".ui-delete").live('click', function(){
-			var answer = confirm(messages.deleteFile);
-			if(answer){
-				var thumb = $(this).parent();
-				var id = thumb.attr('id').replace('thumb-', '');
-				$.getJSON(options.fileRemove + id, function(data){
-					if(data.success){
-						thumb.effect('blind', {}, 500, function(){
-							thumb.remove();
-						});
-					} else {
-						alert(message.fail);
-					}
-				});
-			}
-		});
 		
 		
 		 /**
@@ -451,6 +456,11 @@
 			}).droppable({
 //					accept: '#imagens thumb'
 			});
+		
+			// Create a Overlay for Image
+			$.imgOverlay = $("#see").overlay({
+				target: "#overlayImage"
+			});
 	}
 	
 	/*---------------------------------------------------------
@@ -463,7 +473,8 @@
 	//button in detail views or choosing the "Select"
 	//contextual menu option in list views. 
 	//NOTE: closes the window when finished.
-	var selectItem = function(src){
+	$.selectItem = function(src){
+		var messages = $($.fn.filemanager.messages);
 		if(window.opener){
 			if($.urlParam('CKEditor')){
 				// use CKEditor 3.0 integration method
@@ -474,14 +485,98 @@
 			}
 			window.close();	
 		} else {
-//			$.prompt('The "Select" function is only used for integration with FCKEditor.');
-			alert(notCkeditor);
+			alert($.fn.filemanager.messages.notCkeditor);
 		}
 	};
 
 	$.urlParam = function(name){
 		var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(window.location.href);
-		return results[1] || 0;
+		return results != null ? results[1] : false;
 	};
 	
+	// Close the opened window
+	$.closeWindow = function(){
+		if(window.opener){
+			var answer =  confirm($.fn.filemanager.messages.closeWindow);
+			if(answer){
+				window.close();
+			}
+		}else{
+			alert($.fn.filemanager.messages.notCkeditor);
+		}
+	};
+	
+	/**
+	 * Config contextMenu for thumbs inside the tabs
+	 */
+	$.fn.configContextMenu = function(){
+		var contextMenu = $(this).contextMenu({
+			menu: 'myMenu'
+		}, function(action, el, pos) {
+			var thumb = el.parent();
+			var id = thumb.attr("id").replace("thumb-", "");
+			var img = el.find("span img:first").attr("rel");
+			switch(action){
+				case "see":
+					$("<img />")
+						.attr("src", img)
+						.load(function(){
+//							console.debug($(this));
+							$("#overlayImage > .image").html($(this));
+							$.imgOverlay.overlay().load();
+						});
+				break;
+				case "download":
+					url = $.fn.filemanager.options.fileDownload + id;
+					$(location).attr('href', url);
+				break;
+				case "edit":
+					alert("edit");
+				break;
+				case "select":
+					$.selectItem(img);
+				break;
+				case "edit":
+//					overlay.load();
+				break;
+				case "delete":alert("primeiro");
+				alert($.urlParam("CKEditor"));
+				teste = $.urlParam("CKEditor");
+				alert(teste);alert("primeiro");
+				alert($.urlParam("CKEditor"));
+				teste = $.urlParam("CKEditor");
+				alert(teste);
+				console.debug(teste);
+				if($.urlParam('CKEditor')){
+					alert("correto");
+					contextMenu.disableContextMenuItems(".quit,.select");
+				}
+//				console.debug(teste);
+				if($.urlParam('CKEditor')){
+					alert("correto");
+					contextMenu.disableContextMenuItems(".quit,.select");
+				}
+					var answer = confirm($.fn.filemanager.messages.deleteFile);
+					if(answer){
+						$.getJSON($.fn.filemanager.options.fileRemove + id, function(data){
+							if(data.success){
+								thumb.effect('blind', {}, 500, function(){
+									thumb.remove();
+								});
+							} else {
+								alert($.fn.filemanager.messages.fail);
+							}
+						});
+					}
+				break;
+				case "quit":
+					$.closeWindow();
+				break;
+			}			
+		});
+		if(!$.urlParam("CKEditor")){
+			$("#myMenu").disableContextMenuItems("#quit,#select");
+		};
+	};	
+
 })(jQuery);

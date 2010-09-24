@@ -1,15 +1,15 @@
 <ul id="myMenu" class="contextMenu">
-    <li class="edit">
+    <li class="see">
+        <a href="#see" id="see" rel="#overlay"><?php echo __('See', true);?></a>
+    </li>
+    <li class="download">
+        <a href="#download"><?php echo __('Download', true);?></a>
+    </li>
+    <li class="edit separator">
         <a href="#edit"><?php echo __('Edit', true);?></a>
     </li>
-    <li class="cut separator">
-        <a href="#cut"><?php echo __('Cut', true);?></a>
-    </li>
     <li class="copy">
-        <a href="#copy"><?php echo __('Copy', true);?></a>
-    </li>
-    <li class="paste">
-        <a href="#paste"><?php echo __('Paste', true);?></a>
+        <a href="#duplicate"><?php echo __('Duplicate', true);?></a>
     </li>
     <li class="delete">
         <a href="#delete"><?php echo __('Delete', true);?></a>

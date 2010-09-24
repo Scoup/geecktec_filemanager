@@ -126,6 +126,13 @@ input, textarea, select { font-family: inherit; font-size: 1.2em }
 		.file_size {}
 		
 		.file_details ul li {margin:0; padding:0}
+		
+	.file_options {
+		display: none;
+		position: absolute;
+		top:5px;
+		left: 5px;
+	}
 
 /*
  *	ENVIAR ARQUIVOS

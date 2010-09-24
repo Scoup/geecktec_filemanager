@@ -86,5 +86,19 @@ class GeecktecFilemanagerFilesController extends GeecktecFilemanagerAppControlle
 		$this->set(compact('output'));
 		$this->render('/json');
 	}
+	
+	public function admin_ajaxDownload($id = null){
+		$this->view = 'Media';
+		$image = $this->GeecktecFilemanagerFile->findById($id);
+		$params = array(
+			'id' => $image['GeecktecFilemanagerFile']['filename'],
+			'name' => substr($image['GeecktecFilemanagerFile']['title'], 0, strrpos($image['GeecktecFilemanagerFile']['title'], '.')),
+			'extension' => substr(strrchr($image['GeecktecFilemanagerFile']['filename'], '.'), 1),
+			'download' => true,
+			'path' => "webroot" . DS .$image['GeecktecFilemanagerFile']['dir'] . DS
+		);
+		$this->set($params);
+		$this->render();
+	}
 }
 ?>

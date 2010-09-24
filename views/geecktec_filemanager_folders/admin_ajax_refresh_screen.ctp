@@ -1,19 +1,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
-	// Show menu when a list item is clicked
-	$("#imagens .thumb").contextMenu({
-		menu: 'myMenu'
-	}, function(action, el, pos) {
-		var img = el.find('img');
-		switch(action){
-			case "select":
-				selectItem(img.attr('rel'));
-			break;
-			case "edit":
-				overlay.load();
-			break;
-		}
-	});
+	$(".file_content").configContextMenu();
+	
 	$(".imagens").sortable({
 		start: startDrag,
 		beforeStop: beforeStopDrag
@@ -66,7 +54,8 @@ $(document).ready(function() {
 <?php
 	foreach($files as $file){		
 ?>
-	<li class="thumb ui-widget-content" id="thumb-<?php echo $file['GeecktecFilemanagerFile']['id'];?>">
+	<li class="thumb ui-w}idget-content" id="thumb-<?php echo $file['GeecktecFilemanagerFile']['id'];?>">
+		<div class="file_content">
 			<span class="file_image">
 			<?php
 			echo $images->resize(
@@ -88,9 +77,12 @@ $(document).ready(function() {
 					<li class="file_size"><?php echo round($file['GeecktecFilemanagerFile']['filesize'] / 1024);?> kb</li>
 				</ul>				
 			</div>
-			<a href="#" class="ui-state-default ui-corner-all ui-delete" style="right: 5px; position:absolute; display:none">
+		</div>
+		<?php  /*
+			<a href="#" title="<?php echo __("Delete File", true);?>" class="ui-state-default ui-corner-all ui-delete" style="right: 5px; position:absolute; display:none">
 				<span class="ui-icon ui-icon-circle-close"></span>
 			</a>
+			*/?>
 	</li>
 <?php } ?>
 </ul>

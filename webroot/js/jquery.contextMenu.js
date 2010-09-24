@@ -31,6 +31,7 @@ if(jQuery)( function() {
 				$('#' + o.menu).addClass('contextMenu');
 				// Simulate a true right click
 				$(this).mousedown( function(e) {
+				if(e.button == 2){
 					var evt = e;
 					evt.stopPropagation();
 					$(this).mouseup( function(e) {
@@ -66,7 +67,7 @@ if(jQuery)( function() {
 							}
 							(e.pageX) ? x = e.pageX : x = e.clientX + d.scrollLeft;
 							(e.pageY) ? y = e.pageY : y = e.clientY + d.scrollTop;
-
+							
 							// Show the menu
 							$(document).unbind('click');
 							$(menu).css({ top: y, left: x }).fadeIn(o.inSpeed);
@@ -126,6 +127,7 @@ if(jQuery)( function() {
 							}, 0);
 						}
 					});
+				}
 				});
 				
 				// Disable text selection
@@ -150,6 +152,7 @@ if(jQuery)( function() {
 				$(this).find('LI').addClass('disabled');
 				return( $(this) );
 			}
+			console.debug($(this));
 			$(this).each( function() {
 				if( o != undefined ) {
 					var d = o.split(',');
