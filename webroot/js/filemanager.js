@@ -485,7 +485,13 @@
 			}
 			window.close();	
 		} else {
-			alert($.fn.filemanager.messages.notCkeditor);
+			// Works with thickbox
+			if($.urlParam("CKEditor")){
+				parent.$("#" + $.urlParam("CKEditor")).val(src);
+				parent.tb_remove();
+			}else{
+				alert($.fn.filemanager.messages.notCkeditor);
+			}
 		}
 	};
 
