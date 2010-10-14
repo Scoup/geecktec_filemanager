@@ -4,7 +4,7 @@
 //			'/geecktec_filemanager/css/jquery-layout',					// jquery layout CSS
 //			'/geecktec_filemanager/css/basic',							// Basic CSS
 			'/geecktec_filemanager/css/jquery.contextMenu',				// ContextMenu
-//			'/geecktec_filemanager/css/uploader/fileuploader',			// Valums Fileuploader CSS
+			'/geecktec_filemanager/css/uploader/fileuploader',			// Valums Fileuploader CSS
 //			'/geecktec_filemanager/css/uploader/new',					// Valums Fileuploader CSS
 //			'/geecktec_filemanager/css/layout-custom',					// Custom Css for jquery-layout
 		));  

@@ -8,7 +8,7 @@
 //			'/geecktec_filemanager/css/layout-custom',					// Custom Css for jquery-layout
 		));  
 		
-		echo $this->Html->script(array(	 
+		echo $this->Html->script(array(
 			'/geecktec_filemanager/js/jquery.layout.1-3-2',				// Page Layout Manager
 			'/geecktec_filemanager/js/jquery.contextMenu',				// ContextMenu
 			'/geecktec_filemanager/js/jquery.jstree.js',				// jsTree

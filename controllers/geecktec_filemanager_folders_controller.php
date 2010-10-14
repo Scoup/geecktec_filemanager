@@ -13,7 +13,8 @@ class GeecktecFilemanagerFoldersController extends GeecktecFilemanagerAppControl
 	}	
 	
 	public function admin_index() {
-		if (isset($this->params['url']['CKEditor'])) {
+		debug($this->params);
+		if (isset($this->params['url']['CKEditor']) || isset($this->params['url']['newWindow'])) {
 			$this->layout = 'admin_full';
 		}
 //		$this->layout = 'novo';
